@@ -1,0 +1,112 @@
+<MainScreen>:
+    #: import time __main__.time
+
+    name: 'main'
+    FloatLayout:
+        size_hint: None, None
+
+    Button:
+        id: img
+        size_hint: None, None
+        text: 'press me'
+        on_press: root.image()
+        size: 200, 150
+        background_normal: 'dino.jpeg'
+
+    Slider:
+        id: sl
+        size_hint: None, None
+        size: root.width, root.height*0.1
+        center_y: root.height * 0.95
+        min: 0
+        max: 100
+        step: 1
+        orientation: 'horizontal'
+
+    Label:
+        id: mtr
+        mDir: 0
+        text: 'motor off'
+        font_size: 40
+        color: 0,0,1,1
+        size: 100, 100
+        center_x: root.width * 0.75
+        center_y: root.height * 0.75
+
+    Label:
+        id: joy
+        font_size: 40
+        color: 0,0,1,1
+        size: 100, 100
+        x: 0
+        y: 0
+        text: 'x: '+str(round(self.x))+' y: '+str(round(self.y))
+
+    DPEAButton:
+        id: dir
+        text: 'motor direction'
+        size: 100, 100
+        x: root.width * 0.75
+        y: root.height * 0.5
+        color: 0, 1, 0, 1
+        on_press: root.changeDir()
+
+    DPEAButton:
+        id: btn
+        text: 'on'
+        size: 100, 100
+        x: root.width * 0.5
+        y: root.height * 0.5
+        color: 0, 1, 0, 1
+        on_press: root.toggle()
+
+    DPEAButton:
+        id: cnt
+        i: 0
+        text: '0'
+        size: 100, 100
+        x: root.width * 0.5
+        y: root.height * 0.25
+        color: 0, 1, 0, 1
+        on_press: root.count()
+
+    DPEAButton:
+        text: 'motor switch'
+        size: 100, 100
+        x: root.width * 0.25
+        y: root.height * 0.25
+        color: 0, 1, 0, 1
+        on_press: root.toggleMotor()
+
+    DPEAButton:
+        text: "test2"
+        size: 100, 100
+        x: root.width * 0.25
+        y: root.height * 0.5
+        color: 1, 0, 0, 1
+        on_press: root.pressed()
+
+    SelfUpdatingLabel:
+        id: time_label
+        size_hint: None, None
+        font_size: 30
+        update_property: time.now
+        update_property_parameters: None
+        center_x: root.width * 0.5
+        center_y: root.height * 0.45
+        color: 1, 1, 1, 1
+        bold: True
+        outline_width: self.font_size * 0.1
+        outline_color: 0, 0, 0
+
+<ButtonScreen>:
+    name: 'button'
+    Button:
+        id: img
+        size_hint: None, None
+        text: 'press me'
+        on_press: root.image()
+        size: 200, 150
+        background_normal: 'dino.jpeg'
+        x: root.width * 0.5
+        y: root.height * 0.5
