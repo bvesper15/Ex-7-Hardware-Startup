@@ -74,7 +74,6 @@ class MainScreen(Screen):
         s0.setMaxSpeed(self.ids.sl.value_normalized * 600)
         if self.ids.mtr.text == 'motor on':
             s0.run(self.ids.mtr.mDir, 10000)
-            print(str(s0.speed))
 
 
     def updateJoy(self, dt):
